@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/antlr-runtime.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/drools-compiler.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/drools-core.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/drools-decisiontables.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/drools-jsr94.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/drools-templates.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/jbpm-audit.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/jbpm-bpmn2.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/jbpm-flow.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/jbpm-flow-builder.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/jsr94.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/junit.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/kie-api.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/kie-internal.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/logback-classic-1.2.3.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/logback-core-1.2.3.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/mvel2.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/org.eclipse.equinox.launcher_1.3.201.v20161025-1711.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/org.eclipse.jdt.core_3.12.3.v20170228-1205.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/poi.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/poi-ooxml.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/protobuf-java.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/slf4j-api.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/slf4j-api-1.7.25.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/xmlpull.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/xpp3_min.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse/eclipse/plugins/xstream.jar"/>
+	<classpathentry kind="output" path="target"/>
+</classpath>

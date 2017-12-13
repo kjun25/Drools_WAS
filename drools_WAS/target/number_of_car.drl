@@ -1,0 +1,30 @@
+//created on: 2017. 12. 13
+package com.kjun.drools
+
+//list any import classes here.
+
+
+
+//declare any global variables here
+
+
+
+
+rule  "number_of_my_car_0"
+
+    when
+        CMC:CheckingMyCar(0 ==  carnum)
+  
+    then
+           System.out.println("I don't have a car");
+
+end
+
+rule  "number_of_my_car_1"
+
+    when
+        CMC:CheckingMyCar(1 == carnum)
+    then
+             System.out.println("I have a car");
+
+end
