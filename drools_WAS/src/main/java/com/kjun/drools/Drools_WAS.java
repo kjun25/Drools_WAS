@@ -12,67 +12,67 @@ import org.kie.internal.builder.KnowledgeBuilderFactory;
 import org.kie.internal.io.ResourceFactory;
 
 public class Drools_WAS {
-    public static final void main(String[] args) {
+	public static final void main(String[] args) {
 
-	try {
+		try {
 
-		// create new KnowledgeBuilder 
-		KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
+			// create new KnowledgeBuilder
+			KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
 
-		// 지식 빌더에 룰정의파일 설정
-		kbuilder.add(ResourceFactory.newClassPathResource("number_of_car.drl"), ResourceType.DRL);
+			// setting "rule file" to KnowledgeBuilder
+			kbuilder.add(ResourceFactory.newClassPathResource("number_of_car.drl"), ResourceType.DRL);
 
-		// 새로운 지식 베이스 생성
-		KieBase kiebase = kbuilder.newKnowledgeBase();
+			// create new KieBase
+			KieBase kiebase = kbuilder.newKnowledgeBase();
 
-		Iterator<KiePackage> lKiePackageIterator = kiebase.getKiePackages().iterator();
-		while (lKiePackageIterator.hasNext()) {
-			KiePackage lKiePackage = lKiePackageIterator.next();
-			Iterator<Rule> lRuleIterator = lKiePackage.getRules().iterator();
-			while (lRuleIterator.hasNext()) {
-				Rule lRule = lRuleIterator.next();
-				System.out.println(lRule.getName());
+			//rule list of rule file 
+			Iterator<KiePackage> lKiePackageIterator = kiebase.getKiePackages().iterator();
+			while (lKiePackageIterator.hasNext()) {
+				KiePackage lKiePackage = lKiePackageIterator.next();
+				Iterator<Rule> lRuleIterator = lKiePackage.getRules().iterator();
+				while (lRuleIterator.hasNext()) {
+					Rule lRule = lRuleIterator.next();
+					System.out.println(lRule.getName());
+				}
 			}
-		}
 
-		// 새로운 지식 베이스 세션 생성
-	KieSession session = kiebase.newKieSession();
-
-		System.out.println(session.getSessionClock().getCurrentTime());
-
-		// logger등록(팩트에 의해 생성된 엑티베이션(Activation)관련 이벤트만 로깅
-//		session.addEventListener(new CustomAgendaEventListener(session.getIdentifier()));
-
-		// CheckingMyCar클래스를 이용한 팩트 추가
-		int a = 0;
-		
-			session.insert(new CheckingMyCar(a));
-		
+			// 새로운 지식 베이스 세션 생성
+			KieSession session = kiebase.newKieSession();
 
 			System.out.println(session.getSessionClock().getCurrentTime());
 
-			 System.out.println(session.getIdentifier());
+			// logger등록(팩트에 의해 생성된 엑티베이션(Activation)관련 이벤트만 로깅
+			// session.addEventListener(new
+			// CustomAgendaEventListener(session.getIdentifier()));
 
-			System.out.println("RuleEngineStartTime : " + session.getSessionClock().getCurrentTime()
-					+ " Matched count of Rule : " + session.fireAllRules());
+			// CheckingMyCar클래스를 이용한 팩트 추가
+			int a = 1;
 
-		
-		session.dispose();
+			session.insert(new CheckingMyCar(a));
 
-//		File aFile = new File("src/main/resources");
-//		File[] fileList = aFile.listFiles();
-//
-//		for (File tempFile : fileList) {
-//			if (tempFile.isFile()) {
-//				String tempPath = tempFile.getParent();
-//				String tempFileName = tempFile.getName();
-//				System.out.println(tempFileName);
-//			}
-//		}
+			System.out.println(session.getSessionClock().getCurrentTime());
 
-	} catch (Throwable t) {
-		t.printStackTrace();
+			System.out.println(session.getIdentifier());
+
+			System.out.println("RuleEngineStartTime : " + session.getSessionClock().getCurrentTime() +"\n"
+					+ "Matched count of Rule : " + session.fireAllRules());
+
+			session.dispose();
+
+			// File aFile = new File("src/main/resources");
+			// File[] fileList = aFile.listFiles();
+			//
+			// for (File tempFile : fileList) {
+			// if (tempFile.isFile()) {
+			// String tempPath = tempFile.getParent();
+			// String tempFileName = tempFile.getName();
+			// System.out.println(tempFileName);
+			// }
+			// }
+
+		} catch (Throwable t) {
+			t.printStackTrace();
+		}
 	}
-}
 
 }
