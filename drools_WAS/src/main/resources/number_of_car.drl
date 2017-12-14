@@ -28,3 +28,12 @@ rule  "number_of_my_car_1"
              System.out.println("I have a car");
 
 end
+
+rule  "number_of_my_car_2"
+
+    when
+        CMC:CheckingMyCar(1 < carnum)
+    then
+             System.out.println("I have cars");
+
+end
