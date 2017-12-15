@@ -37,15 +37,12 @@ public class Drools_WAS {
 				}
 			}
 
-			// 새로운 지식 베이스 세션 생성
+			// Create new KieSession
 			KieSession session = kiebase.newKieSession();
 
-	//		System.out.println(session.getSessionClock().getCurrentTime());
 
 			// logger등록(팩트에 의해 생성된 엑티베이션(Activation)관련 이벤트만 로깅
-			// session.addEventListener(new
-			// CustomAgendaEventListener(session.getIdentifier()));
-		
+				
 			session.addEventListener(new DroolsAgendaEventListener());
 			// CheckingMyCar클래스를 이용한 팩트 추가
 			int a = 1;
@@ -59,17 +56,7 @@ public class Drools_WAS {
 			System.out.println("session.getFactCount(): " + session.getFactCount() +"\n"+ "fireAllRules: " + session.fireAllRules());
 
 			session.dispose();
-
-			// File aFile = new File("src/main/resources");
-			// File[] fileList = aFile.listFiles();
-			//
-			// for (File tempFile : fileList) {
-			// if (tempFile.isFile()) {
-			// String tempPath = tempFile.getParent();
-			// String tempFileName = tempFile.getName();
-			// System.out.println(tempFileName);
-			// }
-			// }
+			
 
 		} catch (Throwable t) {
 			t.printStackTrace();
