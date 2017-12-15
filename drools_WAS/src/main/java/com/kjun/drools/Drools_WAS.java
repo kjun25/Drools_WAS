@@ -25,37 +25,38 @@ public class Drools_WAS {
 			// create new KieBase
 			KieBase kiebase = kbuilder.newKnowledgeBase();
 
-			//rule list of rule file 
+			// rule list of rule file
 			Iterator<KiePackage> lKiePackageIterator = kiebase.getKiePackages().iterator();
 			while (lKiePackageIterator.hasNext()) {
 				KiePackage lKiePackage = lKiePackageIterator.next();
 				Iterator<Rule> lRuleIterator = lKiePackage.getRules().iterator();
+				System.out.println("Rule list: ");
 				while (lRuleIterator.hasNext()) {
 					Rule lRule = lRuleIterator.next();
-					System.out.println(lRule.getName());
+					System.out.println(" -"+lRule.getName());
 				}
 			}
 
 			// 새로운 지식 베이스 세션 생성
 			KieSession session = kiebase.newKieSession();
 
-			System.out.println(session.getSessionClock().getCurrentTime());
+	//		System.out.println(session.getSessionClock().getCurrentTime());
 
 			// logger등록(팩트에 의해 생성된 엑티베이션(Activation)관련 이벤트만 로깅
 			// session.addEventListener(new
 			// CustomAgendaEventListener(session.getIdentifier()));
-
+		
+			session.addEventListener(new DroolsAgendaEventListener());
 			// CheckingMyCar클래스를 이용한 팩트 추가
 			int a = 1;
 
 			session.insert(new CheckingMyCar(a));
 
-			System.out.println(session.getSessionClock().getCurrentTime());
+			System.out.println("Current Time: "+session.getSessionClock().getCurrentTime());
 
-			System.out.println(session.getIdentifier());
+			System.out.println("Session ID: " + session.getIdentifier());
 
-			System.out.println("RuleEngineStartTime : " + session.getSessionClock().getCurrentTime() 
-					+ "Matched count of Rule : " + session.fireAllRules());
+			System.out.println("session.getFactCount(): " + session.getFactCount() +"\n"+ "fireAllRules: " + session.fireAllRules());
 
 			session.dispose();
 
