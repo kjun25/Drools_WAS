@@ -54,7 +54,7 @@ public class Drools_WAS {
 
 			System.out.println(session.getIdentifier());
 
-			System.out.println("RuleEngineStartTime : " + session.getSessionClock().getCurrentTime() +"\n"
+			System.out.println("RuleEngineStartTime : " + session.getSessionClock().getCurrentTime() 
 					+ "Matched count of Rule : " + session.fireAllRules());
 
 			session.dispose();
